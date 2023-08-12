@@ -35,6 +35,8 @@ namespace CoinDeskWebApiApp
             builder.Services.AddHttpClient();
 
             // Named client configuration;
+            // It’s also possible to have named clients, you can do that by registering it via DI (you can register how many you want).
+            // This is how you can configure.
             builder.Services.AddHttpClient("CoinDeskSettings", client =>
             {
                 client.BaseAddress = new Uri(builder.Configuration.GetValue<string>("CoinDeskSettings:Url"));
